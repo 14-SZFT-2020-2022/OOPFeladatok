@@ -1,14 +1,15 @@
 ﻿Mezők (adattagok):
-+int[] integerTomb
-+int elemszam
-+int intervallumKezdo
-+int intervallumVeg
+-int[] integerTomb
+-int elemszam
+-int intervallumKezdo
+-int intervallumVeg
 
 Metódusok:
-+SajatAdatokKiirasa()
 +SajatFeltoltes()
++SajatAdatokKiirasa()
 +OsszegSzamol()
 +AtlagSzamol()
-+MinSzamol()
 +MaxSzamol()
-+Atvetel()
++MinSzamol()
++Kiir()
++Atvetel(IntTomb elem)

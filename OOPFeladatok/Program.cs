@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Threading;
 using OOPFeladatok.IntelligensTomb;
 
 namespace OOPFeladatok
@@ -13,6 +10,14 @@ namespace OOPFeladatok
         {
             IntTomb it = new IntTomb(5, 10, 20);
             it.SajatAdatokKiirasa();
+            it.Kiir();
+            Thread.Sleep(1000);
+            IntTomb it2 = new IntTomb(5, 10, 20);
+            it2.SajatAdatokKiirasa();
+            it2.Kiir();
+            IntTomb it3 = it.Atvetel(it2);
+            it3.SajatAdatokKiirasa();
+            it3.Kiir();
 
             Console.ReadKey(true);
         }
