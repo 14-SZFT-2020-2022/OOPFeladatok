@@ -44,6 +44,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IntelligensTomb\IntTomb.cs" />
+    <Compile Include="ITomb\IAdatokKezelese.cs" />
+    <Compile Include="ITomb\IntegerTomb.cs" />
+    <Compile Include="ITomb\Tomb.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

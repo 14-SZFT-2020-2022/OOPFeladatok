@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading;
 using OOPFeladatok.IntelligensTomb;
+using OOPFeladatok.ITomb;
 
 namespace OOPFeladatok
 {
@@ -8,16 +9,27 @@ namespace OOPFeladatok
     {
         static void Main(string[] args)
         {
-            IntTomb<float> it = new IntTomb<float>(5, 10, 20);
+            /*
+            IntTomb<int> it = new IntTomb<int>(5, 10, 20);
             it.SajatAdatokKiirasa();
             it.Kiir();
             Thread.Sleep(1000);
-            IntTomb<float> it2 = new IntTomb<float>(5, 10, 20);
+            IntTomb<int> it2 = new IntTomb<int>(5, 10, 20);
             it2.SajatAdatokKiirasa();
             it2.Kiir();
-            IntTomb<float> it3 = it.Atvetel(it2);
+            IntTomb<int> it3 = it.Atvetel(it2);
             it3.SajatAdatokKiirasa();
             it3.Kiir();
+            */
+
+            Console.Write("Milyen típussal dolgozzak (int/float): ");
+            string beker = Console.ReadLine();
+
+            if (beker == "int")
+            {
+                IntegerTomb it = new IntegerTomb(5, 10, 20);
+                it.SajatAdatokKiirasa();
+            }
 
             Console.ReadKey(true);
         }

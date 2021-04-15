@@ -1,0 +1,133 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace OOPFeladatok.ITomb
+{
+    class IntegerTomb : Tomb, IAdatokKezelese
+    {
+        public int[] TombI { get; set; }
+
+        public IntegerTomb(int elemszam, int intervallumKezdo, int intervallumVeg) : base(elemszam, intervallumKezdo, intervallumVeg)
+        {
+            this.TombI = new int[this.Elemszam];
+            SajatFeltoltes();
+        }
+
+        public IntegerTomb(int elemszam)
+        {
+            this.TombI = new int[elemszam];
+        }
+
+        public void SajatFeltoltes()
+        {
+            Random rnd = new Random();
+
+            for (int i = 0; i < this.Elemszam; i++)
+            {
+                this.TombI[i] = rnd.Next(this.IntervallumKezdo, this.IntervallumVeg + 1);
+            }
+        }
+
+        public void SajatAdatokKiirasa()
+        {
+            foreach (int elem in this.TombI)
+            {
+                Console.WriteLine(elem);
+            }
+        }
+
+        public dynamic OsszegSzamol()
+        {
+            int osszeg = 0;
+
+            foreach (int elem in this.TombI)
+            {
+                osszeg += elem;
+            }
+
+            return osszeg;
+        }
+
+        public double AtlagSzamol()
+        {
+            double atlag = (double)OsszegSzamol() / this.TombI.Length;
+
+            return atlag;
+        }
+
+        public dynamic MaxSzamol()
+        {
+            int max = Int32.MinValue;
+
+            foreach (int elem in this.TombI)
+            {
+                if (elem > max)
+                {
+                    max = elem;
+                }
+            }
+
+            return max;
+        }
+
+        public dynamic MinSzamol()
+        {
+            int min = Int32.MaxValue;
+
+            foreach (int elem in this.TombI)
+            {
+                if (elem < min)
+                {
+                    min = elem;
+                }
+            }
+
+            return min;
+        }
+
+        public IntegerTomb Atvetel(IntegerTomb tomb)
+        {
+            // A kezdő tömb és a hozzáadott tömb számításához, kezdetben üres.
+            List<int> lista = new List<int>();
+
+            // A kezdő tömb elemek listába töltése.
+            foreach (int elem in this.TombI)
+            {
+                lista.Add(elem);
+            }
+
+            // A hozzáadott tömb elemeinek összehasonlítása a lista elemeivel, ha nincs közöttük, akkor hozzávesszük.
+            foreach (int elem in tomb.TombI)
+            {
+                bool vanE = true;
+
+                foreach (int item in lista)
+                {
+                    if (item == elem)
+                    {
+                        vanE = false;
+                        break;
+                    }
+                }
+
+                if (vanE)
+                {
+                    lista.Add(elem);
+                }
+            }
+
+            // Lista segítségével létrehozok egy új intelligens tömböt. Itt használom a második konstruktort.
+            IntegerTomb ujTomb = new IntegerTomb(lista.Count);
+
+            for (int i = 0; i < lista.Count; i++)
+            {
+                ujTomb.TombI[i] = lista[i];
+            }
+
+            return ujTomb;
+        }
+    }
+}
