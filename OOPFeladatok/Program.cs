@@ -8,14 +8,14 @@ namespace OOPFeladatok
     {
         static void Main(string[] args)
         {
-            IntTomb it = new IntTomb(5, 10, 20);
+            IntTomb<float> it = new IntTomb<float>(5, 10, 20);
             it.SajatAdatokKiirasa();
             it.Kiir();
             Thread.Sleep(1000);
-            IntTomb it2 = new IntTomb(5, 10, 20);
+            IntTomb<float> it2 = new IntTomb<float>(5, 10, 20);
             it2.SajatAdatokKiirasa();
             it2.Kiir();
-            IntTomb it3 = it.Atvetel(it2);
+            IntTomb<float> it3 = it.Atvetel(it2);
             it3.SajatAdatokKiirasa();
             it3.Kiir();
 
