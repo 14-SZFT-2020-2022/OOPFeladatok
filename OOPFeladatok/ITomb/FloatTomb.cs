@@ -6,19 +6,19 @@ using System.Threading.Tasks;
 
 namespace OOPFeladatok.ITomb
 {
-    class IntegerTomb : Tomb, IAdatokKezelese
+    class FloatTomb : Tomb, IAdatokKezelese
     {
-        public int[] TombI { get; set; }
+        public float[] TombF { get; set; }
 
-        public IntegerTomb(int elemszam, int intervallumKezdo, int intervallumVeg) : base(elemszam, intervallumKezdo, intervallumVeg)
+        public FloatTomb(int elemszam, int intervallumKezdo, int intervallumVeg) : base(elemszam, intervallumKezdo, intervallumVeg)
         {
-            this.TombI = new int[this.Elemszam];
+            this.TombF = new float[this.Elemszam];
             SajatFeltoltes();
         }
 
-        public IntegerTomb(int elemszam)
+        public FloatTomb(int elemszam)
         {
-            this.TombI = new int[elemszam];
+            this.TombF = new float[elemszam];
         }
 
         override public void SajatFeltoltes()
@@ -27,13 +27,13 @@ namespace OOPFeladatok.ITomb
 
             for (int i = 0; i < this.Elemszam; i++)
             {
-                this.TombI[i] = rnd.Next(this.IntervallumKezdo, this.IntervallumVeg + 1);
+                this.TombF[i] = (float)((this.IntervallumVeg - this.IntervallumKezdo + 1) * rnd.NextDouble() + this.IntervallumKezdo);
             }
         }
 
         override public void SajatAdatokKiirasa()
         {
-            foreach (int elem in this.TombI)
+            foreach (float elem in this.TombF)
             {
                 Console.WriteLine(elem);
             }
@@ -41,9 +41,9 @@ namespace OOPFeladatok.ITomb
 
         override public dynamic OsszegSzamol()
         {
-            int osszeg = 0;
+            float osszeg = 0.0F;
 
-            foreach (int elem in this.TombI)
+            foreach (float elem in this.TombF)
             {
                 osszeg += elem;
             }
@@ -53,16 +53,16 @@ namespace OOPFeladatok.ITomb
 
         override public double AtlagSzamol()
         {
-            double atlag = (double)OsszegSzamol() / this.TombI.Length;
+            double atlag = (double)OsszegSzamol() / this.TombF.Length;
 
             return atlag;
         }
 
         override public dynamic MaxSzamol()
         {
-            int max = Int32.MinValue;
+            float max = System.Single.MinValue;
 
-            foreach (int elem in this.TombI)
+            foreach (float elem in this.TombF)
             {
                 if (elem > max)
                 {
@@ -75,9 +75,9 @@ namespace OOPFeladatok.ITomb
 
         override public dynamic MinSzamol()
         {
-            int min = Int32.MaxValue;
+            float min = System.Single.MaxValue;
 
-            foreach (int elem in this.TombI)
+            foreach (float elem in this.TombF)
             {
                 if (elem < min)
                 {
@@ -88,23 +88,23 @@ namespace OOPFeladatok.ITomb
             return min;
         }
 
-        public IntegerTomb Atvetel(IntegerTomb tomb)
+        public FloatTomb Atvetel(FloatTomb tomb)
         {
             // A kezdő tömb és a hozzáadott tömb számításához, kezdetben üres.
-            List<int> lista = new List<int>();
+            List<float> lista = new List<float>();
 
             // A kezdő tömb elemek listába töltése.
-            foreach (int elem in this.TombI)
+            foreach (float elem in this.TombF)
             {
                 lista.Add(elem);
             }
 
             // A hozzáadott tömb elemeinek összehasonlítása a lista elemeivel, ha nincs közöttük, akkor hozzávesszük.
-            foreach (int elem in tomb.TombI)
+            foreach (float elem in tomb.TombF)
             {
                 bool vanE = true;
 
-                foreach (int item in lista)
+                foreach (float item in lista)
                 {
                     if (item == elem)
                     {
@@ -120,11 +120,11 @@ namespace OOPFeladatok.ITomb
             }
 
             // Lista segítségével létrehozok egy új intelligens tömböt. Itt használom a második konstruktort.
-            IntegerTomb ujTomb = new IntegerTomb(lista.Count);
+            FloatTomb ujTomb = new FloatTomb(lista.Count);
 
             for (int i = 0; i < lista.Count; i++)
             {
-                ujTomb.TombI[i] = lista[i];
+                ujTomb.TombF[i] = lista[i];
             }
 
             return ujTomb;

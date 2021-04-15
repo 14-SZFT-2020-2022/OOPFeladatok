@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace OOPFeladatok.ITomb
 {
-    class Tomb
+    class Tomb : IAdatokKezelese
     {
         public int Elemszam { get; set; }
         public int IntervallumKezdo { get; set; }
@@ -21,25 +21,44 @@ namespace OOPFeladatok.ITomb
 
         public Tomb()
         {
-
+            
         }
-        /*
-        public void SajatFeltoltes() { }
-        public void SajatAdatokKiirasa() { }
-        public dynamic OsszegSzamol() { }
-        public double AtlagSzamol() { }
-        public dynamic MaxSzamol() { }
-        public dynamic MinSzamol() { }
+
+        virtual public void SajatFeltoltes() { }
+        virtual public void SajatAdatokKiirasa() { }
+        virtual public dynamic OsszegSzamol()
+        {
+            dynamic t = 0;
+            return t; 
+        }
+
+        virtual public double AtlagSzamol()
+        {            
+            double t = 0;
+            return t;
+        }
+
+        virtual public dynamic MaxSzamol()
+        {
+            dynamic t = 0;
+            return t;
+        }
+
+        virtual public dynamic MinSzamol()
+        {
+            dynamic t = 0;
+            return t;
+        }
 
         public void Kiir()
         {
             Console.WriteLine("\nA tömb számított értékei: ");
-            Console.WriteLine($"A tömbelemek összege: {OsszegSzamol()}");
-            Console.WriteLine($"A tömbelemek átlaga: {AtlagSzamol()}");
-            Console.WriteLine($"A tömbelemek maximuma: {MaxSzamol()}");
-            Console.WriteLine($"A tömbelemek minimuma: {MinSzamol()}");
+            Console.WriteLine($"A tömbelemek összege: {this.OsszegSzamol()}");
+            Console.WriteLine($"A tömbelemek átlaga: {this.AtlagSzamol()}");
+            Console.WriteLine($"A tömbelemek maximuma: {this.MaxSzamol()}");
+            Console.WriteLine($"A tömbelemek minimuma: {this.MinSzamol()}");
             Console.WriteLine();
         }
-        */
+        
     }
 }
