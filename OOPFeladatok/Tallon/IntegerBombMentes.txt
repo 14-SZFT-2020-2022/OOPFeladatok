@@ -13,14 +13,14 @@ namespace OOPFeladatok.ITomb
         public IntegerTomb(int elemszam, int intervallumKezdo, int intervallumVeg) : base(elemszam, intervallumKezdo, intervallumVeg)
         {
             this.TombI = new int[this.Elemszam];
-            SajatFeltoltes();
+            // SajatFeltoltes();
         }
 
         public IntegerTomb(int elemszam)
         {
             this.TombI = new int[elemszam];
         }
-
+       
         override public void SajatFeltoltes()
         {
             Random rnd = new Random();
@@ -30,7 +30,7 @@ namespace OOPFeladatok.ITomb
                 this.TombI[i] = rnd.Next(this.IntervallumKezdo, this.IntervallumVeg + 1);
             }
         }
-
+        
         override public void SajatAdatokKiirasa()
         {
             foreach (int elem in this.TombI)

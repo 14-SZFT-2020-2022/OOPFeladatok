@@ -44,9 +44,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IntelligensTomb\IntTomb.cs" />
-    <Compile Include="ITomb\FloatTomb.cs" />
-    <Compile Include="ITomb\IAdatokKezelese.cs" />
-    <Compile Include="ITomb\IntegerTomb.cs" />
+    <Compile Include="ITomb\Float\FloatTomb.cs" />
+    <Compile Include="ITomb\Float\Kiiratas.cs" />
+    <Compile Include="ITomb\Float\Osszefesules.cs" />
+    <Compile Include="ITomb\Float\Szamolas.cs" />
+    <Compile Include="ITomb\Integer\IntegerTomb.cs" />
+    <Compile Include="ITomb\Integer\Kiiratas.cs" />
+    <Compile Include="ITomb\Integer\Osszefesules.cs" />
+    <Compile Include="ITomb\Integer\Szamolas.cs" />
     <Compile Include="ITomb\Tomb.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -56,6 +61,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="IntelligensTomb\Adatok.txt" />
+    <Content Include="Tallon\FloatTombMentes.txt" />
+    <Content Include="Tallon\IAdatokKezeleseMentes.txt" />
+    <Content Include="Tallon\IntegerBombMentes.txt" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

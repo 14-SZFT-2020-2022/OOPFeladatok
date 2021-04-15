@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Threading;
-using OOPFeladatok.IntelligensTomb;
-using OOPFeladatok.ITomb;
+// using OOPFeladatok.IntelligensTomb;
+using OOPFeladatok.ITomb.Integer;
+using OOPFeladatok.ITomb.Float;
 
 namespace OOPFeladatok
 {
